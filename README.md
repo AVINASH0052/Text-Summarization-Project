@@ -1,65 +1,72 @@
 # Text Summarization Project
 
-## Project Overview
+This project demonstrates the development of a text summarization model using the BART (Bidirectional and Auto-Regressive Transformers) architecture. The project involves data loading, preprocessing, training a model, and generating summaries for given texts.
 
-This project focuses on developing a text summarization model using a state-of-the-art NLP technique. The model aims to condense long articles into shorter summaries, retaining the key information. This is particularly useful for quickly understanding large volumes of text data.
+## Table of Contents
+- [Introduction](#introduction)
+- [Dataset](#dataset)
+- [Methodology](#methodology)
+- [Results](#results)
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [Conclusion](#conclusion)
+- [Future Work](#future-work)
+- [Acknowledgments](#acknowledgments)
 
-## Datasets
+## Introduction
+Text summarization is a critical application of natural language processing (NLP) that aims to condense long documents into shorter versions while retaining the essential information. This project utilizes the BART model for generating summaries of news articles.
 
+## Dataset
 Three datasets are used in this project:
+1. **data.csv**: Contains preprocessed news articles.
+2. **rating.csv**: Contains user ratings for the articles.
+3. **raw-data.csv**: Contains raw news articles before preprocessing.
 
-1. **news_data.csv**: Contains the main content of the articles.
-2. **rating.csv**: Includes user ratings for various articles.
-3. **raw-data.csv**: Contains raw text data of articles.
+These datasets are combined and preprocessed to create a final dataset for training and evaluation.
 
-Each dataset is preprocessed to remove duplicates and irrelevant columns, and then combined into a single DataFrame for analysis and modeling.
+## Methodology
+The project follows these main steps:
+1. **Data Loading**: Loading the datasets into Pandas DataFrames.
+2. **Data Preprocessing**: Cleaning the text, tokenization, and removing duplicates.
+3. **Model Training**: Training the BART model using the prepared dataset.
+4. **Prediction**: Generating summaries for new texts using the trained model.
+5. **Evaluation**: Comparing the predicted summaries with the actual summaries.
 
-## Project Workflow
+## Results
+The model's performance is evaluated by generating summaries for a sample of articles and comparing them with the actual summaries. Visualizations are created to show the length of predicted and actual summaries for comparison.
 
-### 1. Data Loading
+## Requirements
+To run this project, you need to install the following libraries:
+- pandas
+- requests
+- beautifulsoup4
+- nltk
+- torch
+- transformers
+- scikit-learn
+- matplotlib
 
-Load the datasets using Pandas and inspect the first few rows to understand the structure and content.
+You can install these dependencies using pip:
 
-### 2. Data Preprocessing
+## Usage
+1. **Clone the Repository**:
+   git clone https://github.com/AVINASH0052/Text-Summarization-Project.git
 
-- **Type Conversion**: Convert the `article_id` column to string type for consistency.
-- **Duplicate Removal**: Drop any duplicate rows based on `article_id`.
-- **Concatenation**: Merge the datasets on `article_id` and remove duplicate columns.
-- **Column Exclusion**: Drop irrelevant columns such as `source_id`, `source_name`, `author`, etc.
-- **Handling Missing Values**: Remove any rows or columns with missing values to ensure clean data.
+2. **Navigate to the Project Directory**:
+   cd Text-Summarization-Project
 
-### 3. Text Cleaning and Tokenization
+3. **Run the Jupyter Notebook**:
+   - Open the Jupyter Notebook `summarization.ipynb` and execute the cells to reproduce the results.
+   - Follow the steps outlined in the notebook to train the model and generate summaries.
 
-- **Text Cleaning**: Remove HTML tags and non-alphabetic characters, and convert text to lowercase.
-- **Tokenization**: Split text into sentences and words.
-- **Stopwords Removal**: Remove common English stopwords to reduce noise in the data.
+## Conclusion
+This project successfully demonstrates the use of BART for text summarization, showcasing skills in data preprocessing, model training, and result visualization. The generated summaries provide a concise representation of the original texts.
 
-### 4. Model Training
+## Future Work
+Future improvements could include:
+- Experimenting with different NLP models and architectures.
+- Fine-tuning hyperparameters for better performance.
+- Integrating additional features such as sentiment analysis.
 
-Use a pre-trained BART model for text summarization. The model and tokenizer are loaded using the Hugging Face `transformers` library.
-
-- **Dataset Preparation**: Split the data into training and validation sets.
-- **Model Training**: Train the model using a customized dataset class and appropriate training arguments.
-- **Evaluation**: Evaluate the model's performance using the validation set.
-
-### 5. Prediction and Visualization
-
-- **Prediction**: Generate summaries for a sample of articles using the trained model.
-- **Visualization**: Compare the length of predicted and actual summaries using bar plots.
-- **Sample Output**: Display the original articles, predicted summaries, and actual summaries for comparison.
-
-## Instructions to Reproduce the Results
-
-### Prerequisites
-
-Ensure you have the following installed:
-- Python 3.6 or higher
-- Jupyter Notebook
-- Necessary Python libraries (listed below)
-
-### Installation
-
-1. **Clone the Repository**
-   ```bash
-   git clone <repository_url>
-   cd <repository_directory>
+## Acknowledgments
+Special thanks to the creators of the datasets and the developers of the libraries used in this project.
